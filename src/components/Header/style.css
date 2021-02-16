@@ -1,0 +1,12 @@
+.header {
+    background-image:linear-gradient(to right, rgb(51, 17, 105), rgb(165, 149, 2));
+    padding-bottom: 6%;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    justify-content: center;
+    align-items: center;
+}
