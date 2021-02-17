@@ -29,6 +29,24 @@ class Table extends Component {
         })
     };
 
+    sortLastNames = event => {
+        event.preventDefault()
+        this.setState({
+            results: this.state.results.sort((a, b) => {
+                return (a.name.last < b.name.last) ? -1 : (a.name.last > b.name.last) ? 1 : 0 || (a.name.last < b.name.last) ? 1 : (a.name.last > b.name.last) ? -1 : 0
+            })
+        })
+    }
+
+    sortFirstNames = event => {
+        event.preventDefault()
+        this.setState({
+            results: this.state.results.sort((a, b) => {
+                return (a.name.first < b.name.first) ? -1 : (a.name.first > b.name.first) ? 1 : 0
+            })
+        })
+    }
+
     handleInputChange = event => {
         const name = event.target.name;
         const value = event.target.value;
@@ -54,6 +72,8 @@ class Table extends Component {
                     handleFormSubmit={this.handleFormSubmit}
                     employeeSearch={this.employeeSearch}
                     filterEmployees={this.filterEmployees}
+                    sortLastNames={this.sortLastNames}
+                    sortFirstNames={this.sortFirstNames}
                 />
                 <br />
                 <table className="table">

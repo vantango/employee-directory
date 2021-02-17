@@ -1,6 +1,13 @@
-.input-group {
-    max-width: 20%;
-    display: flex;
+.container {
     justify-content: center;
     align-items: center;
+}
+
+.row {
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control {
+    max-width: 35%;
 }

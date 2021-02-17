@@ -1,11 +1,13 @@
 .header {
     background-image:linear-gradient(180deg, rgb(51, 17, 105), rgb(165, 149, 2));
-    padding-bottom: 6%;
+    padding-bottom:3%;
+    margin-bottom: 6%;
     color: white;
     justify-content: center;
     align-items: center;
 }
 
 .title {
+    padding-top:3%;
     text-align: center;
 }
