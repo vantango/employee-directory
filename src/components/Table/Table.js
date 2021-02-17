@@ -21,12 +21,12 @@ class Table extends Component {
             .catch(err => console.log(err));
     };
 
-    filterEmployees = (employeeName) => {
-        console.log(employeeName);
-        this.state.results.filter(item => {
-            console.log(item.name.first.indexOf());
-        })
-    };
+    // filterEmployees = results => {
+
+    //     this.state.results.filter(results => {
+    //         results.name.first.toLowerCase().includes(results.name.first.toLowerCase())
+    //     })
+    // };
 
     handleInputChange = event => {
         const name = event.target.name;
@@ -51,6 +51,7 @@ class Table extends Component {
                     search={this.state.search}
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}
+                    employeeSearch={this.employeeSearch}
                 />
                 <br />
                 <table className="table">
