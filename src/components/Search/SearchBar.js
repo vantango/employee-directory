@@ -1,13 +1,24 @@
 import React from "react";
 import "./style.css"
 
-function Navbar() {
+function SearchBar(props) {
     return (
-        <div className="input-group mb-3">
-            <input type="text" className="form-control" placeholder="Enter a name" aria-label="Recipient's username" aria-describedby="button-addon2" />
-            <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        <div className="input-group">
+            <input
+                onChange={props.handleInputChange}
+                name="search"
+                value={props.search}
+                type="text"
+                className="form-control"
+                placeholder="Enter a name"
+                aria-describedby="button-addon2" />
+            <button
+                onClick={props.handleFormSubmit}
+                className="btn btn-primary"
+                type="button"
+                id="button-addon2">Search</button>
         </div>
     );
 }
 
-export default Navbar;
+export default SearchBar;
