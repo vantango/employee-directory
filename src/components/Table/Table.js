@@ -21,12 +21,13 @@ class Table extends Component {
             .catch(err => console.log(err));
     };
 
-    // filterEmployees = results => {
-
-    //     this.state.results.filter(results => {
-    //         results.name.first.toLowerCase().includes(results.name.first.toLowerCase())
-    //     })
-    // };
+    filterEmployees = () => {
+        const result = this.state.results.filter(result =>
+            result.name.first.toLowerCase() === this.state.search.toLowerCase() || result.name.last.toLowerCase() === this.state.search.toLowerCase())
+        this.setState({
+            results: result
+        })
+    };
 
     handleInputChange = event => {
         const name = event.target.name;
@@ -52,6 +53,7 @@ class Table extends Component {
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}
                     employeeSearch={this.employeeSearch}
+                    filterEmployees={this.filterEmployees}
                 />
                 <br />
                 <table className="table">
@@ -63,22 +65,20 @@ class Table extends Component {
                             <th scope="col">Email</th>
                             <th scope="col">DOB</th>
                             <th scope="col">Phone</th>
-
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.results.map((employee, i) => {
-                            return (
-                                <tr key={i}>
-                                    <td><img src={employee.picture.thumbnail} /></td>
-                                    <td>{employee.name.first + " " + employee.name.last}</td>
-                                    <td>{employee.location.city + ", " + employee.location.state}</td>
-                                    <td>{employee.email}</td>
-                                    <td>{employee.dob.date.substring(0, 10)}</td>
-                                    <td>{employee.phone}</td>
-                                </tr>)
-                        })};
-                </tbody>
+                        {this.state.results.map((employee, i) => (
+                            <tr key={i}>
+                                <td><img src={employee.picture.thumbnail} /></td>
+                                <td>{employee.name.first + " " + employee.name.last}</td>
+                                <td>{employee.location.city + ", " + employee.location.state}</td>
+                                <td>{employee.email}</td>
+                                <td>{employee.dob.date.substring(0, 10)}</td>
+                                <td>{employee.phone}</td>
+                            </tr>)
+                        )}
+                    </tbody>
                 </table>
             </div >
         );
