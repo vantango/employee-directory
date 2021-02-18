@@ -8,7 +8,7 @@ A React app that uses Axios to make API calls to the Random User Generator API. 
 <img src="https://media.giphy.com/media/Nf4C36fCatNjlUseZ6/giphy.gif">
 
 ## Deployment
-Heroku:
+Heroku: https://akm-employee-directory.herokuapp.com/
 
 GitHub: https://github.com/vantango/employee-directory
             
