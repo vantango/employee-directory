@@ -5,7 +5,9 @@ import SearchBar from '../Search/SearchBar';
 class Table extends Component {
     state = {
         results: [],
-        search: ""
+        search: "",
+        isFirstAscending: true,
+        isLastAscending: true
     }
 
     componentDidMount() {
@@ -27,24 +29,59 @@ class Table extends Component {
         this.setState({
             results: result
         })
+
+        // Resetting the filter
+        if (this.state.search === "") {
+            this.employeeSearch()
+        }
     };
 
     sortLastNames = event => {
+        console.log(this.state.isLastAscending);
         event.preventDefault()
         this.setState({
             results: this.state.results.sort((a, b) => {
-                return (a.name.last < b.name.last) ? -1 : (a.name.last > b.name.last) ? 1 : 0 || (a.name.last < b.name.last) ? 1 : (a.name.last > b.name.last) ? -1 : 0
+                if (this.state.isLastAscending === true) {
+                    return (a.name.last < b.name.last) ? -1 : (a.name.last > b.name.last) ? 1 : 0
+                } else {
+                    return (a.name.last < b.name.last) ? 1 : (a.name.last > b.name.last) ? -1 : 0
+                }
             })
         })
+        // Toggle Last name values
+        if (this.state.isLastAscending) {
+            this.setState({
+                isLastAscending: false
+            })
+        } else {
+            this.setState({
+                isLastAscending: true
+            })
+        }
     }
 
     sortFirstNames = event => {
+        console.log(this.state.isFirstAscending);
         event.preventDefault()
         this.setState({
             results: this.state.results.sort((a, b) => {
-                return (a.name.first < b.name.first) ? -1 : (a.name.first > b.name.first) ? 1 : 0
+                if (this.state.isFirstAscending === true) {
+                    return (a.name.first < b.name.first) ? -1 : (a.name.first > b.name.first) ? 1 : 0
+                } else {
+                    return (a.name.first < b.name.first) ? 1 : (a.name.first > b.name.first) ? -1 : 0
+                }
             })
         })
+        // Toggle First name values
+        if (this.state.isFirstAscending) {
+            this.setState({
+                isFirstAscending: false
+            })
+        } else {
+            this.setState({
+                isFirstAscending: true
+            })
+        }
     }
 
     handleInputChange = event => {
@@ -75,7 +112,6 @@ class Table extends Component {
                     sortLastNames={this.sortLastNames}
                     sortFirstNames={this.sortFirstNames}
                 />
-                <br />
                 <table className="table">
                     <thead>
                         <tr>

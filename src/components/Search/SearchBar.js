@@ -20,15 +20,15 @@ function SearchBar(props) {
                         type="button"
                         id="button-addon2">Search</button>
                     <button
-                        onClick={props.sortLastNames}
-                        className="btn btn-success"
-                        type="button"
-                        id="button-addon2">Sort by Last Name</button>
-                    <button
                         onClick={props.sortFirstNames}
                         className="btn btn-danger"
                         type="button"
                         id="button-addon2">Sort by First Name</button>
+                    <button
+                        onClick={props.sortLastNames}
+                        className="btn btn-success"
+                        type="button"
+                        id="button-addon2">Sort by Last Name</button>
                 </div>
             </div>
         </div >
