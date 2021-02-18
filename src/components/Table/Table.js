@@ -14,6 +14,7 @@ class Table extends Component {
         this.employeeSearch();
     };
 
+    // Makes initial API call to random user generator API
     employeeSearch = () => {
         API.search()
             .then(res => {
@@ -23,6 +24,7 @@ class Table extends Component {
             .catch(err => console.log(err));
     };
 
+    // Searches for employee based on first or last name
     filterEmployees = () => {
         const result = this.state.results.filter(result =>
             result.name.first.toLowerCase() === this.state.search.toLowerCase() || result.name.last.toLowerCase() === this.state.search.toLowerCase())
@@ -36,6 +38,7 @@ class Table extends Component {
         }
     };
 
+    // Sorts generated users by last name values
     sortLastNames = event => {
         console.log(this.state.isLastAscending);
         event.preventDefault()
@@ -47,7 +50,7 @@ class Table extends Component {
                     return (a.name.last < b.name.last) ? 1 : (a.name.last > b.name.last) ? -1 : 0
                 }
             })
-        })
+        });
         // Toggle Last name values
         if (this.state.isLastAscending) {
             this.setState({
@@ -56,10 +59,11 @@ class Table extends Component {
         } else {
             this.setState({
                 isLastAscending: true
-            })
-        }
-    }
+            });
+        };
+    };
 
+    // Sorts generated users by first name values
     sortFirstNames = event => {
         console.log(this.state.isFirstAscending);
         event.preventDefault()
@@ -71,19 +75,20 @@ class Table extends Component {
                     return (a.name.first < b.name.first) ? 1 : (a.name.first > b.name.first) ? -1 : 0
                 }
             })
-        })
-        // Toggle First name values
+        });
+        // Toggle first name values to display in reverse
         if (this.state.isFirstAscending) {
             this.setState({
                 isFirstAscending: false
-            })
+            });
         } else {
             this.setState({
                 isFirstAscending: true
-            })
-        }
-    }
+            });
+        };
+    };
 
+    // Collects values entered in input field
     handleInputChange = event => {
         const name = event.target.name;
         const value = event.target.value;
@@ -92,14 +97,15 @@ class Table extends Component {
         });
     };
 
+    // Handles search button onClick event
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state.search);
         this.filterEmployees(this.state.search);
-        this.setState({ search: "" })
+        this.setState({ search: "" });
     };
 
-
+    // Renders all of the components to the App.js file
     render() {
         return (
             <div>

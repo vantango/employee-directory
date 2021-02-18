@@ -6,6 +6,11 @@
 A React app that uses Axios to make API calls to the Random User Generator API. The user can search for an employee via first or last name (non-case sensitive). Employees can also be arranged in both ascending or descending order based on either their first or last name. These actions are performed via sort and filter functions.
 
 <img src="https://media.giphy.com/media/Nf4C36fCatNjlUseZ6/giphy.gif">
+
+## Deployment
+Heroku:
+
+GitHub: https://github.com/vantango/employee-directory
             
 ## Table of Contents
 - [Installation](#Installation)
